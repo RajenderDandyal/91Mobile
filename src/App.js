@@ -20,6 +20,7 @@ import OppoF3 from "./assets/phones/Oppo-F3-Plus.png"
 import SamgsungA9 from "./assets/phones/Samsung-Galaxy-A9-Pro.png"
 import SamgsungS9 from "./assets/phones/Samsung-Galaxy-S9+.png"
 import Xiaomi from "./assets/phones/xiaomi-mi-mix-3.png"
+import SliderPhone from "./phoneSlider";
 
 class App extends Component {
   state = {
@@ -71,7 +72,7 @@ class App extends Component {
         match: null,
         clicked: null,
         key: 5,
-        hint:"Likes recording people littering from cars"
+        hint: "Likes recording people littering from cars"
       },
       {
         image: Badshah,
@@ -91,7 +92,7 @@ class App extends Component {
       },
     ],
     selectedCeleb: {},
-    mobileImages: [
+    phoneImages: [
       {
         name: "Apple-iPhone-Xs-Max",
         image: AppleXs,
@@ -166,7 +167,7 @@ class App extends Component {
     this.setState({selectedCeleb: updatedSelectedCelebObj})
     this.setState({celebImages: updatedStateImages})
 
-  }
+  };
 
   render() {
     console.log(this.state);
@@ -193,13 +194,19 @@ class App extends Component {
             <div>{isEmpty(this.state.selectedCeleb) ? null :
                 <p align="center">{this.state.selectedCeleb.hint}</p>}
             </div>
-            <div style={{display: "flex", flexDirection: "row", margin:'20px', alignItems:'center', justifyContent:"center"}}>
+            <div style={{
+              display: "flex",
+              flexDirection: "row",
+              margin: '20px',
+              alignItems: 'center',
+              justifyContent: "center"
+            }}>
               <div style={{width: "150px", height: "1px", backgroundColor: "red"}}></div>
-              <div style={{padding:"10px"}}> <p align="center" style={{color:"red"}}>Slider</p> </div>
+              <div style={{padding: "10px"}}><p align="center" style={{color: "red"}}>Slider</p></div>
               <div style={{width: "150px", height: "1px", backgroundColor: "red"}}></div>
             </div>
+            <SliderPhone images={this.state.phoneImages}/>
           </div>
-
         </div>
     );
   }

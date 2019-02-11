@@ -13,7 +13,7 @@ export default class SliderCeleb extends Component {
         <div className={styles.celebSlider} >
           {
             this.props.images.map((celeb, i) => (
-                <div onClick={() => this.handleSelectedCelebrity(celeb, i)} key={i} className={styles.slide1}
+                <div onClick={() => this.handleSelectedCelebrity(celeb, i)} key={i} className={styles.celebSlide}
                      style={celeb.clicked ? {width:"150", height:"150"}:null }>
                   {celeb.clicked ? <img src={celeb.image} alt={"celeb"} height="140" width="140"/> :
                       <img src={celeb.image} alt={"celeb"} height="100" width="100"/>}
