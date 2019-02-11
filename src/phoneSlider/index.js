@@ -34,8 +34,6 @@ export default class SliderPhone extends Component {
                       <p align="center" style={{fontSize: "10px"}}>{phone.subTitle}</p>
                     </div>
                   </div>
-
-
                 </div>
             ))
           }
