@@ -1,4 +1,4 @@
-.body{
+.body {
     width: 100%;
     background-color: blue;
     height: 100%;
@@ -6,10 +6,11 @@
     align-items: center;
     justify-content: center;
 }
-.container{
+
+.container {
     padding: 25px;
     min-width: 350px;
-    width:50%;
+    width: 50%;
     background-color: white;
     height: 100%;
     display: flex;
@@ -17,26 +18,30 @@
     align-items: center;
     justify-content: center;
 }
-.logo{
-    width:220px;
-    height:65px;
+
+.logo {
+    width: 220px;
+    height: 65px;
     background-color: white;
 }
-.heading{
+
+.heading {
     font-size: large;
     font-weight: bold;
     margin: 15px;
 }
-.subheading{
+
+.subheading {
     font-size: inherit;
     margin: 10px;
     flex-wrap: wrap;
     width: 350px;
 }
-.celebSlider{
+
+.celebSlider {
     width: 75%;
     min-width: 300px;
-    height:160px;
+    height: 160px;
     background-color: white;
     display: flex;
     flex-wrap: nowrap;
@@ -45,20 +50,21 @@
     -ms-overflow-x: scroll;
 
 }
-.celebSlide{
-    width:110px;
-    height:110px;
-    margin:10px;
+
+.celebSlide {
+    width: 110px;
+    height: 110px;
+    margin: 10px;
     background-color: white;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.phoneSlider{
+.phoneSlider {
     width: 75%;
     min-width: 300px;
-    height:360px;
+    height: 360px;
     background-color: lightgray;
     display: flex;
     flex-wrap: nowrap;
@@ -67,14 +73,42 @@
     -ms-overflow-x: scroll;
 }
 
-.phoneSlide{
-    width:400px;
-    height:280px;
-    margin:10px;
+.phoneSlide {
+    width: 400px;
+    height: 280px;
+    margin: 10px;
     background-color: white;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 4px;
     box-sizing: border-box;
+}
+
+.phoneCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #eee;
+    height: 100%;
+    width: 160px;
+    z-index: 1;
+}
+
+.overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 160px;
+    z-index: 10;
+    position: relative;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.displayNone {
+    display: none;
 }

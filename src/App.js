@@ -96,48 +96,64 @@ class App extends Component {
       {
         name: "Apple-iPhone-Xs-Max",
         image: AppleXs,
+        match: null,
+        clicked: null,
         key: 5,
         subTitle: "Motion-stabilization camera"
       },
       {
         name: "Huawei-P20-Pro",
         image: HuaweiP20,
+        match: null,
+        clicked: null,
         key: 3,
         subTitle: "Wide-Angle Camera"
       },
       {
         name: "Micromax-Infinity-N11",
         image: MicromaxInfinity,
+        match: null,
+        clicked: null,
         key: 1,
         subTitle: "Made-in-India"
       },
       {
         name: "Moto-Z2-Force",
         image: MotoZ2,
+        match: null,
+        clicked: null,
         key: 4,
         subTitle: "Unbreakable screen"
       },
       {
         name: "Oppo-F3-Plus",
         image: OppoF3,
+        match: null,
+        clicked: null,
         key: 7,
         subTitle: "16MP+8MP dual front camera"
       },
       {
         name: "Samgsung-Galaxy-A9-Pro",
         image: SamgsungA9,
+        match: null,
+        clicked: null,
         key: 2,
         subTitle: "5000 Mah battery"
       },
       {
         name: "Samgsung-Galaxy-S9+",
         image: SamgsungS9,
+        match: null,
+        clicked: null,
         key: 6,
         subTitle: "Stereo speakers"
       },
       {
         name: "Xiaomi-mi-mix-3",
         image: Xiaomi,
+        match: null,
+        clicked: null,
         key: 0,
         subTitle: "6.39 inches Screen"
       },
@@ -168,6 +184,29 @@ class App extends Component {
     this.setState({celebImages: updatedStateImages})
 
   };
+  handleSelectedPhone = (phone, i) => {
+    let updatedPhoneImages = cloneDeep(this.state.phoneImages);
+   /* updatedPhoneImages.forEach(item => {
+      if (item.clicked) {
+        item.clicked = null
+      }
+    });*/
+    let updatedSelectedPhone = updatedPhoneImages.filter(item => item.key === phone.key);
+    console.log(updatedSelectedPhone, phone, i);
+    let updatedSelectedPhoneObj = {};
+    updatedSelectedPhone.forEach(item => {
+      updatedSelectedPhoneObj.image = item.image;
+      updatedSelectedPhoneObj.clicked =  true;
+      updatedSelectedPhoneObj.match = null;
+      updatedSelectedPhoneObj.name = item.name;
+      updatedSelectedPhoneObj.key = phone.key;
+      updatedSelectedPhoneObj.subTitle = item.subTitle
+    });
+
+    updatedPhoneImages[i] = updatedSelectedPhoneObj;
+
+    this.setState({phoneImages: updatedPhoneImages})
+  }
 
   render() {
     console.log(this.state);
@@ -186,15 +225,15 @@ class App extends Component {
             <SliderCeleb handleSelectedCelebrity={(celeb, i) => this.handleSelectedCelebrity(celeb, i)}
                          images={this.state.celebImages}/>
             <div>{isEmpty(this.state.selectedCeleb) ? null :
-                <p align="center" style={{fontWeight: "bold"}}>{this.state.selectedCeleb.name}</p>}
+                <p align="center" style={{fontWeight: "bold", padding:'0', margin:"3px"}}>{this.state.selectedCeleb.name}</p>}
             </div>
             <div>{isEmpty(this.state.selectedCeleb) ? null :
-                <p align="center">Hint</p>}
+                <p align="center" style={{padding:'0', margin:"3px"}}>Hint</p>}
             </div>
             <div>{isEmpty(this.state.selectedCeleb) ? null :
-                <p align="center">{this.state.selectedCeleb.hint}</p>}
+                <p align="center" style={{padding:'0', margin:"3px"}}>{this.state.selectedCeleb.hint}</p>}
             </div>
-            <div style={{
+            {/*<div style={{
               display: "flex",
               flexDirection: "row",
               margin: '20px',
@@ -204,8 +243,8 @@ class App extends Component {
               <div style={{width: "150px", height: "1px", backgroundColor: "red"}}></div>
               <div style={{padding: "10px"}}><p align="center" style={{color: "red"}}>Slider</p></div>
               <div style={{width: "150px", height: "1px", backgroundColor: "red"}}></div>
-            </div>
-            <SliderPhone images={this.state.phoneImages}/>
+            </div>*/}
+            <SliderPhone handleSelectedPhone={(phone, i)=>this.handleSelectedPhone(phone,i)} images={this.state.phoneImages}/>
           </div>
         </div>
     );
