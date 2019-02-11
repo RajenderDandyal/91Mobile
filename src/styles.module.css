@@ -133,9 +133,42 @@
 .displayOverlayTextForCeleb{
     display: flex;
     font-weight: bold;
-    font-size: medium;
-    color: black;
+    font-size: small;
+    color: white;
     position: relative;
     top: 30%;
     left: 2%;
+}
+.buttonContainer{
+    margin:15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.button{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:200px;
+    height:60px;
+    border-radius: 16px;
+    background-color: #4caf50;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+.disableBtn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:200px;
+    height:60px;
+    border-radius: 16px;
+    background-color: lightgray;
+    font-weight: bold;
+    color: white;
+    cursor: none;
 }

@@ -19,7 +19,7 @@ export default class SliderPhone extends Component {
           {
             this.props.images.map((phone, i) => (
                 <div onClick={() => this.handleSelectedPhone(phone, i)} key={i} className={styles.phoneSlide}
-                    style={phone.finallySelected ? {width: "160", height: "280", opacity:"0.5", backgroundColor:"darkGrey"} :
+                    style={phone.finallySelected ? {width: "160", height: "280", opacity:"0.8", backgroundColor:"darkGrey"} :
                         phone.clicked && !isEmpty(phone.match)?
                         {width: "160", height: "280", opacity:"0.5", backgroundColor:"darkGrey"} : null  }
                 >

@@ -24,6 +24,8 @@ import SliderPhone from "./phoneSlider";
 
 class App extends Component {
   state = {
+    finallySubmit: false,
+    answerCheck: [],
     celebImages: [
       {
         image: DiljitSingh,
@@ -231,18 +233,44 @@ class App extends Component {
 
     updatedPhoneImages[i] = updatedSelectedPhoneObj;
 
-    this.setState({phoneImages: updatedPhoneImages},() => this.addSelectedPhoneForCeleb());
-    this.setState({selectedPhone: updatedSelectedPhoneObj} )
+    this.setState({phoneImages: updatedPhoneImages}, () => this.addSelectedPhoneForCeleb());
+    this.setState({selectedPhone: updatedSelectedPhoneObj})
   };
   addSelectedPhoneForCeleb = () => {
-    console.log("inside")
     let updatedSelectedCeleb = cloneDeep(this.state.celebImages);
     updatedSelectedCeleb.forEach(item => {
       if (item.key === this.state.selectedCeleb.key) {
         item.match = this.state.selectedPhone
       }
+    });
+    this.setState({celebImages: updatedSelectedCeleb}, () => this.finallySubmit())
+  };
+  finallySubmit = () => {
+    if (!this.state.finallySubmit) {
+      this.state.celebImages.forEach(item => {
+        if (!isEmpty(item.match)) {
+          this.setState({finallySubmit: true})
+        } else {
+          this.setState({finallySubmit: false})
+        }
+      })
+    }
+  };
+  handleSubmit = () => {
+    if (this.state.finallySubmit) {
+      this.checkCorrectAnswers()
+    } else {
+      alert("Match all celebrities with at least one phone")
+    }
+  };
+  checkCorrectAnswers = () => {
+    let answerCheck = [];
+    this.state.phoneImages.forEach(item => {
+      if (item.key === item.match.key){
+        answerCheck.push(true)
+      }
     })
-    this.setState({celebImages:updatedSelectedCeleb})
+    this.setState({answerCheck})
   };
 
   render() {
@@ -284,6 +312,12 @@ class App extends Component {
             </div>*/}
             <SliderPhone handleSelectedPhone={(phone, i) => this.handleSelectedPhone(phone, i)}
                          images={this.state.phoneImages}/>
+            <div onClick={this.handleSubmit} className={styles.buttonContainer}>
+              <div className={this.state.finallySubmit ? styles.button : styles.disableBtn}>
+                Submit
+              </div>
+            </div>
+            <div>{this.state.answerCheck.length}</div>
           </div>
         </div>
     );
