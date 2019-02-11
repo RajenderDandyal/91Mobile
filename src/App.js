@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import styles from "./styles.module.css";
 import logo from "./assets/logo.png";
-import Slider from "./sliderCeleb";
+import SliderCeleb from "./sliderCeleb";
 import cloneDeep from "lodash/cloneDeep"
 import isEmpty from "lodash/isEmpty";
 import Badshah from "./assets/celeb/Badshah.png"
@@ -12,6 +12,14 @@ import RanveerSingh from "./assets/celeb/ranveer-singh.png"
 import SRK from "./assets/celeb/SRK.png"
 import Sunny from "./assets/celeb/Sunny.png"
 import Virat from "./assets/celeb/virat.png"
+import AppleXs from "./assets/phones/Apple-iPhone-Xs-Max.png"
+import HuaweiP20 from "./assets/phones/Huawei-P20-Pro.png"
+import MicromaxInfinity from "./assets/phones/Micromax-Infinity-N11.png"
+import MotoZ2 from "./assets/phones/Moto-Z2-Force.png"
+import OppoF3 from "./assets/phones/Oppo-F3-Plus.png"
+import SamgsungA9 from "./assets/phones/Samsung-Galaxy-A9-Pro.png"
+import SamgsungS9 from "./assets/phones/Samsung-Galaxy-S9+.png"
+import Xiaomi from "./assets/phones/xiaomi-mi-mix-3.png"
 
 class App extends Component {
   state = {
@@ -26,7 +34,7 @@ class App extends Component {
       },
       {
         image: Ramdev,
-        name: "Ramdev",
+        name: "Baba Ramdev",
         match: null,
         clicked: null,
         key: 1,
@@ -43,7 +51,7 @@ class App extends Component {
       },
       {
         image: SRK,
-        name: "Sharukh Khan",
+        name: "Shah Rukh Khan",
         match: null,
         clicked: null,
         key: 3,
@@ -81,7 +89,58 @@ class App extends Component {
         hint: "2 achhi selfies ki keemat tum kya jaano, Ramesh babu"
       },
     ],
-    selectedCeleb: {}
+    selectedCeleb: {},
+    mobileImages: [
+      {
+        name: "Apple-iPhone-Xs-Max",
+        image: AppleXs,
+        key: 5,
+        subTitle: "Motion-stabilization camera"
+      },
+      {
+        name: "Huawei-P20-Pro",
+        image: HuaweiP20,
+        key: 3,
+        subTitle: "Wide-Angle Camera"
+      },
+      {
+        name: "Micromax-Infinity-N11",
+        image: MicromaxInfinity,
+        key: 1,
+        subTitle: "Made-in-India"
+      },
+      {
+        name: "Moto-Z2-Force",
+        image: MotoZ2,
+        key: 4,
+        subTitle: "Unbreakable screen"
+      },
+      {
+        name: "Oppo-F3-Plus",
+        image: OppoF3,
+        key: 7,
+        subTitle: "16MP+8MP dual front camera"
+      },
+      {
+        name: "Samgsung-Galaxy-A9-Pro",
+        image: SamgsungA9,
+        key: 2,
+        subTitle: "5000 Mah battery"
+      },
+      {
+        name: "Samgsung-Galaxy-S9+",
+        image: SamgsungS9,
+        key: 6,
+        subTitle: "Stereo speakers"
+      },
+      {
+        name: "Xiaomi-mi-mix-3",
+        image: Xiaomi,
+        key: 0,
+        subTitle: "6.39 inches Screen"
+      },
+
+    ]
   };
   handleSelectedCelebrity = (celeb, i) => {
     let updatedStateImages = cloneDeep(this.state.celebImages);
@@ -122,8 +181,8 @@ class App extends Component {
               <p align="center">Chose the perfect smartphone gift</p>
               <p align="center">for your favourite celebrity</p>
             </div>
-            <Slider handleSelectedCelebrity={(celeb, i) => this.handleSelectedCelebrity(celeb, i)}
-                    images={this.state.celebImages}/>
+            <SliderCeleb handleSelectedCelebrity={(celeb, i) => this.handleSelectedCelebrity(celeb, i)}
+                         images={this.state.celebImages}/>
             <div>{isEmpty(this.state.selectedCeleb) ? null :
                 <p align="center" style={{fontWeight: "bold"}}>{this.state.selectedCeleb.name}</p>}
             </div>
@@ -133,7 +192,11 @@ class App extends Component {
             <div>{isEmpty(this.state.selectedCeleb) ? null :
                 <p align="center">{this.state.selectedCeleb.hint}</p>}
             </div>
-
+            <div style={{display: "flex", flexDirection: "row", margin:'20px', alignItems:'center', justifyContent:"center"}}>
+              <div style={{width: "150px", height: "1px", backgroundColor: "red"}}></div>
+              <div style={{padding:"10px"}}> Slider </div>
+              <div style={{width: "150px", height: "1px", backgroundColor: "red"}}></div>
+            </div>
           </div>
 
         </div>

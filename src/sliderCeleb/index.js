@@ -9,7 +9,7 @@ import SRK from "../assets/celeb/SRK.png"
 import Sunny from "../assets/celeb/Sunny.png"
 import Virat from "../assets/celeb/virat.png"
 
-export default class Slider extends Component {
+export default class SliderCeleb extends Component {
   state = {
     images: [
       DiljitSingh,
