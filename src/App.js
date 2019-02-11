@@ -70,7 +70,8 @@ class App extends Component {
         name: "Virat",
         match: null,
         clicked: null,
-        key: 5
+        key: 5,
+        hint:"Likes recording people littering from cars"
       },
       {
         image: Badshah,
