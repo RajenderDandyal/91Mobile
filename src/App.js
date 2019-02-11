@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import styles from "./styles.module.css";
-import logo from "./assets/logo.png"
+import logo from "./assets/logo.png";
 import Slider from "./sliderCeleb";
+import cloneDeep from "lodash/cloneDeep"
 import Badshah from "./assets/celeb/Badshah.png"
 import Deepika from "./assets/celeb/Deepika.png"
 import DiljitSingh from "./assets/celeb/Diljit-Singh.png"
@@ -18,59 +19,83 @@ class App extends Component {
         image: DiljitSingh,
         name: "Diljit Singh",
         match: null,
-        clicked: null
+        clicked: null,
+        key:0
       },
       {
         image: Ramdev,
         name: "Ramdev",
         match: null,
-        clicked: null
+        clicked: null,
+        key:1
       },
       {
         image: RanveerSingh,
         name: "Ranveer Singh",
         match: null,
-        clicked: null
+        clicked: null,
+        key:2
       },
       {
         image: SRK,
         name: "Sharukh Khan",
         match: null,
-        clicked: null
+        clicked: null,
+        key:3
       },
       {
         image: Sunny,
         name: "Sunny Deol",
         match: null,
-        clicked: null
+        clicked: null,
+        key:4
       },
       {
         image: Virat,
         name: "Virat",
         match: null,
-        clicked: null
+        clicked: null,
+        key:5
       },
       {
         image: Badshah,
         name: "Badshah",
         match: null,
-        clicked: null
+        clicked: null,
+        key:6
       },
       {
         image: Deepika,
         name: "Deepika",
         match: null,
-        clicked: null
+        clicked: null,
+        key:7
       },
     ],
-    currentIndex: 0,
-    translateValue: 0
   };
-  handleSelectedCelebrity = (celeb) => {
+  handleSelectedCelebrity = (celeb, i) => {
+    let updatedStateImages = cloneDeep(this.state.images);
+    updatedStateImages.forEach(item => {
+      item.clicked = null
+    })
+    let updatedSelectedCeleb = updatedStateImages.filter(item => item.name === celeb.name);
+    console.log(updatedSelectedCeleb)
+    let updatedSelectedCelebObj = {}
+    updatedSelectedCeleb.forEach(item => {
+      updatedSelectedCelebObj.image = item.image;
+      updatedSelectedCelebObj.clicked = item.key === i ? true:null;
+      updatedSelectedCelebObj.match = null;
+      updatedSelectedCelebObj.name = item.name
+    })
+
+    updatedStateImages[i] = updatedSelectedCelebObj;
+
+    this.setState({images: updatedStateImages})
 
   }
 
   render() {
+    console.log(this.state);
     return (
         <div className={styles.body}>
           <div className={styles.container}>
@@ -83,7 +108,7 @@ class App extends Component {
               <p align="center">Chose the perfect smartphone gift</p>
               <p align="center">for your favourite celebrity</p>
             </div>
-            <Slider handleSelectedCelebrity={(celeb) => this.handleSelectedCelebrity(celeb)}
+            <Slider handleSelectedCelebrity={(celeb, i) => this.handleSelectedCelebrity(celeb, i)}
                     images={this.state.images}/>
 
           </div>
