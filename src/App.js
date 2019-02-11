@@ -76,16 +76,20 @@ class App extends Component {
   handleSelectedCelebrity = (celeb, i) => {
     let updatedStateImages = cloneDeep(this.state.images);
     updatedStateImages.forEach(item => {
-      item.clicked = null
+      if (item.clicked) {
+        item.clicked = null
+      }
+
     })
-    let updatedSelectedCeleb = updatedStateImages.filter(item => item.name === celeb.name);
-    console.log(updatedSelectedCeleb)
+    let updatedSelectedCeleb = updatedStateImages.filter(item => item.key === i);
+    console.log(updatedSelectedCeleb,celeb, i)
     let updatedSelectedCelebObj = {}
     updatedSelectedCeleb.forEach(item => {
       updatedSelectedCelebObj.image = item.image;
       updatedSelectedCelebObj.clicked = item.key === i ? true:null;
       updatedSelectedCelebObj.match = null;
-      updatedSelectedCelebObj.name = item.name
+      updatedSelectedCelebObj.name = item.name;
+      updatedSelectedCelebObj.key = celeb.key
     })
 
     updatedStateImages[i] = updatedSelectedCelebObj;
