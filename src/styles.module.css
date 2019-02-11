@@ -114,8 +114,8 @@
     display: flex;
     font-weight: bold;
     font-size: large;
-    color: white;
+    color: black;
     position: relative;
     top: 40%;
-    left: 6%;
+    left: 2%;
 }

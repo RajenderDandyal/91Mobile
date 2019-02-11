@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 import styles from "../styles.module.css";
+import isEmpty from "lodash/isEmpty";
+import isEqual from "lodash/isEqual";
 
 export default class SliderPhone extends Component {
   state = {
@@ -17,12 +19,17 @@ export default class SliderPhone extends Component {
           {
             this.props.images.map((phone, i) => (
                 <div onClick={() => this.handleSelectedPhone(phone, i)} key={i} className={styles.phoneSlide}
-                    style={phone.clicked ? {width: "160", height: "280", opacity:"0.5", backgroundColor:"darkGrey"} : null}
+                    style={phone.finallySelected ? {width: "160", height: "280", opacity:"0.5", backgroundColor:"darkGrey"} :
+                        phone.clicked && !isEmpty(phone.match)?
+                        {width: "160", height: "280", opacity:"0.5", backgroundColor:"darkGrey"} : null  }
                 >
                   {/*phone card*/}
                   <div className={styles.phoneCard}>
-                    <div className={phone.clicked ? styles.displayOverlayText : styles.displayNone}>
-                      <p>hello</p>
+                    <div className={phone.finallySelected ? styles.displayOverlayText : phone.clicked && !isEmpty(phone.match) ? styles.displayOverlayText : styles.displayNone}>
+                      <p align="center">Matched with {phone.finallySelected ? phone.match.name :
+                          phone.clicked && !isEmpty(phone.match) ?
+                          phone.match.name : "none"}</p>
+                      {/*<p align="center">{phone.clicked && !isEmpty(phone.match) ?phone.match.name : "none"}</p>*/}
                     </div>
                     <div style={{height: "20%", width: "100%"}}>
                       <p align="center" style={{fontSize: "10px"}}>{phone.name}</p>

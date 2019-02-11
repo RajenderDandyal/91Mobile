@@ -97,6 +97,7 @@ class App extends Component {
         name: "Apple-iPhone-Xs-Max",
         image: AppleXs,
         match: null,
+        finallySelected: false,
         clicked: null,
         key: 5,
         subTitle: "Motion-stabilization camera"
@@ -105,6 +106,7 @@ class App extends Component {
         name: "Huawei-P20-Pro",
         image: HuaweiP20,
         match: null,
+        finallySelected: false,
         clicked: null,
         key: 3,
         subTitle: "Wide-Angle Camera"
@@ -113,6 +115,7 @@ class App extends Component {
         name: "Micromax-Infinity-N11",
         image: MicromaxInfinity,
         match: null,
+        finallySelected: false,
         clicked: null,
         key: 1,
         subTitle: "Made-in-India"
@@ -121,6 +124,7 @@ class App extends Component {
         name: "Moto-Z2-Force",
         image: MotoZ2,
         match: null,
+        finallySelected: false,
         clicked: null,
         key: 4,
         subTitle: "Unbreakable screen"
@@ -129,6 +133,7 @@ class App extends Component {
         name: "Oppo-F3-Plus",
         image: OppoF3,
         match: null,
+        finallySelected: false,
         clicked: null,
         key: 7,
         subTitle: "16MP+8MP dual front camera"
@@ -137,6 +142,7 @@ class App extends Component {
         name: "Samgsung-Galaxy-A9-Pro",
         image: SamgsungA9,
         match: null,
+        finallySelected: false,
         clicked: null,
         key: 2,
         subTitle: "5000 Mah battery"
@@ -145,6 +151,7 @@ class App extends Component {
         name: "Samgsung-Galaxy-S9+",
         image: SamgsungS9,
         match: null,
+        finallySelected: false,
         clicked: null,
         key: 6,
         subTitle: "Stereo speakers"
@@ -153,12 +160,14 @@ class App extends Component {
         name: "Xiaomi-mi-mix-3",
         image: Xiaomi,
         match: null,
+        finallySelected: false,
         clicked: null,
         key: 0,
         subTitle: "6.39 inches Screen"
       },
 
-    ]
+    ],
+    selectedPhone: null
   };
   handleSelectedCelebrity = (celeb, i) => {
     let updatedStateImages = cloneDeep(this.state.celebImages);
@@ -181,31 +190,49 @@ class App extends Component {
 
     updatedStateImages[i] = updatedSelectedCelebObj;
     this.setState({selectedCeleb: updatedSelectedCelebObj})
-    this.setState({celebImages: updatedStateImages})
+    this.setState({celebImages: updatedStateImages}, () => this.addSelectedPhoneFlag())
 
   };
+  addSelectedPhoneFlag = () => {
+    let updatedPhoneImages = cloneDeep(this.state.phoneImages);
+    updatedPhoneImages.forEach(item => {
+      if (!isEmpty(this.state.selectedPhone)) {
+        if (item.key === this.state.selectedPhone.key) {
+          item.finallySelected = true
+        }
+      }
+    });
+    this.setState({phoneImages: updatedPhoneImages});
+
+  }
   handleSelectedPhone = (phone, i) => {
     let updatedPhoneImages = cloneDeep(this.state.phoneImages);
-   /* updatedPhoneImages.forEach(item => {
-      if (item.clicked) {
-        item.clicked = null
+    updatedPhoneImages.forEach(item => {
+      if (!phone.finallySelected) {
+        if (item.clicked) {
+          item.clicked = null
+        }
       }
-    });*/
+    });
+
+
     let updatedSelectedPhone = updatedPhoneImages.filter(item => item.key === phone.key);
     console.log(updatedSelectedPhone, phone, i);
     let updatedSelectedPhoneObj = {};
     updatedSelectedPhone.forEach(item => {
       updatedSelectedPhoneObj.image = item.image;
-      updatedSelectedPhoneObj.clicked =  true;
-      updatedSelectedPhoneObj.match = null;
+      updatedSelectedPhoneObj.clicked = true;
+      updatedSelectedPhoneObj.match = this.state.selectedCeleb;
       updatedSelectedPhoneObj.name = item.name;
       updatedSelectedPhoneObj.key = phone.key;
-      updatedSelectedPhoneObj.subTitle = item.subTitle
+      updatedSelectedPhoneObj.subTitle = item.subTitle;
+      updatedSelectedPhoneObj.finallySelected = phone.finallySelected
     });
 
     updatedPhoneImages[i] = updatedSelectedPhoneObj;
 
-    this.setState({phoneImages: updatedPhoneImages})
+    this.setState({phoneImages: updatedPhoneImages});
+    this.setState({selectedPhone: updatedSelectedPhoneObj})
   }
 
   render() {
@@ -225,13 +252,14 @@ class App extends Component {
             <SliderCeleb handleSelectedCelebrity={(celeb, i) => this.handleSelectedCelebrity(celeb, i)}
                          images={this.state.celebImages}/>
             <div>{isEmpty(this.state.selectedCeleb) ? null :
-                <p align="center" style={{fontWeight: "bold", padding:'0', margin:"3px"}}>{this.state.selectedCeleb.name}</p>}
+                <p align="center"
+                   style={{fontWeight: "bold", padding: '0', margin: "3px"}}>{this.state.selectedCeleb.name}</p>}
             </div>
             <div>{isEmpty(this.state.selectedCeleb) ? null :
-                <p align="center" style={{padding:'0', margin:"3px"}}>Hint</p>}
+                <p align="center" style={{padding: '0', margin: "3px"}}>Hint</p>}
             </div>
             <div>{isEmpty(this.state.selectedCeleb) ? null :
-                <p align="center" style={{padding:'0', margin:"3px"}}>{this.state.selectedCeleb.hint}</p>}
+                <p align="center" style={{padding: '0', margin: "3px"}}>{this.state.selectedCeleb.hint}</p>}
             </div>
             {/*<div style={{
               display: "flex",
@@ -244,7 +272,8 @@ class App extends Component {
               <div style={{padding: "10px"}}><p align="center" style={{color: "red"}}>Slider</p></div>
               <div style={{width: "150px", height: "1px", backgroundColor: "red"}}></div>
             </div>*/}
-            <SliderPhone handleSelectedPhone={(phone, i)=>this.handleSelectedPhone(phone,i)} images={this.state.phoneImages}/>
+            <SliderPhone handleSelectedPhone={(phone, i) => this.handleSelectedPhone(phone, i)}
+                         images={this.state.phoneImages}/>
           </div>
         </div>
     );
