@@ -59,6 +59,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    box-sizing: border-box;
+}
+
+.celebCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    height: 150px;
+    width: 150px;
 }
 
 .phoneSlider {
@@ -117,5 +128,14 @@
     color: black;
     position: relative;
     top: 40%;
+    left: 2%;
+}
+.displayOverlayTextForCeleb{
+    display: flex;
+    font-weight: bold;
+    font-size: medium;
+    color: black;
+    position: relative;
+    top: 30%;
     left: 2%;
 }

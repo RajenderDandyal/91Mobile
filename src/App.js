@@ -182,7 +182,7 @@ class App extends Component {
     updatedSelectedCeleb.forEach(item => {
       updatedSelectedCelebObj.image = item.image;
       updatedSelectedCelebObj.clicked = item.key === i ? true : null;
-      updatedSelectedCelebObj.match = null;
+      updatedSelectedCelebObj.match = celeb.match;
       updatedSelectedCelebObj.name = item.name;
       updatedSelectedCelebObj.key = celeb.key;
       updatedSelectedCelebObj.hint = item.hint
@@ -231,9 +231,19 @@ class App extends Component {
 
     updatedPhoneImages[i] = updatedSelectedPhoneObj;
 
-    this.setState({phoneImages: updatedPhoneImages});
-    this.setState({selectedPhone: updatedSelectedPhoneObj})
-  }
+    this.setState({phoneImages: updatedPhoneImages},() => this.addSelectedPhoneForCeleb());
+    this.setState({selectedPhone: updatedSelectedPhoneObj} )
+  };
+  addSelectedPhoneForCeleb = () => {
+    console.log("inside")
+    let updatedSelectedCeleb = cloneDeep(this.state.celebImages);
+    updatedSelectedCeleb.forEach(item => {
+      if (item.key === this.state.selectedCeleb.key) {
+        item.match = this.state.selectedPhone
+      }
+    })
+    this.setState({celebImages:updatedSelectedCeleb})
+  };
 
   render() {
     console.log(this.state);
