@@ -32,7 +32,6 @@ export default class Slider extends Component {
     console.log(this.props)
     return (
         <div className={styles.celebSlider} >
-
           {
             this.props.images.map((celeb, i) => (
                 <div onClick={() => this.handleSelectedCelebrity(celeb, i)} key={i} className={styles.slide1}
@@ -43,7 +42,6 @@ export default class Slider extends Component {
                 </div>
             ))
           }
-
         </div>
     );
   }
