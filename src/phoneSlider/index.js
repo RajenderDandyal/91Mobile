@@ -17,14 +17,13 @@ export default class SliderPhone extends Component {
           {
             this.props.images.map((phone, i) => (
                 <div onClick={() => this.handleSelectedPhone(phone, i)} key={i} className={styles.phoneSlide}
-                    // style={phone.clicked ? {width: "160", height: "280", opacity:"0.5", backgroundColor:"darkGrey"} : null}
+                    style={phone.clicked ? {width: "160", height: "280", opacity:"0.5", backgroundColor:"darkGrey"} : null}
                 >
-                  {/*overlay*/}
-                  <div className={phone.clicked ? styles.overlay : styles.displayNone}>
-                    <p>hello</p>
-                  </div>
                   {/*phone card*/}
                   <div className={styles.phoneCard}>
+                    <div className={phone.clicked ? styles.displayOverlayText : styles.displayNone}>
+                      <p>hello</p>
+                    </div>
                     <div style={{height: "20%", width: "100%"}}>
                       <p align="center" style={{fontSize: "10px"}}>{phone.name}</p>
                     </div>
