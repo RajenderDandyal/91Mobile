@@ -194,7 +194,7 @@ class App extends Component {
             </div>
             <div style={{display: "flex", flexDirection: "row", margin:'20px', alignItems:'center', justifyContent:"center"}}>
               <div style={{width: "150px", height: "1px", backgroundColor: "red"}}></div>
-              <div style={{padding:"10px"}}> Slider </div>
+              <div style={{padding:"10px"}}> <p align="center" style={{color:"red"}}>Slider</p> </div>
               <div style={{width: "150px", height: "1px", backgroundColor: "red"}}></div>
             </div>
           </div>
