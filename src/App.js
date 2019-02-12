@@ -296,7 +296,7 @@ class App extends Component {
           {!this.state.showResult && (
             <div className={styles.subheading}>
               <p align="center">
-                Chose the perfect smartphone gift
+                Choose the perfect smartphone gift
                 <br />
                 for your favourite celebrity
               </p>

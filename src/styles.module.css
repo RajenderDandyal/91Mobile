@@ -1,70 +1,80 @@
 .body {
-    width: 100%;
-    background-color: white;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 100%;
+  background-color: white;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .container {
-    padding: 25px;
-    min-width: 350px;
-    width: 50%;
-    background-color: white;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  padding: 25px;
+  min-width: 350px;
+  width: 50%;
+  background-color: white;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .logo {
-    width: 220px;
-    height: 65px;
-    background-color: white;
+  width: 220px;
+  height: 65px;
+  background-color: white;
 }
 
 .heading {
-    font-size: large;
-    font-weight: bold;
-    margin: 10px;
+  font-size: larger;
+  font-weight: bold;
+  margin: 10px;
 }
 
 .subheading {
-    font-size: inherit;
-    margin: 10px;
-    flex-wrap: wrap;
-    width: 350px;
+  font-size: inherit;
+  margin: 10px;
+  flex-wrap: wrap;
+  width: 350px;
 }
 .celebSlider {
-    height: 160px;
-    background-color: white;
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
+  height: 200px;
+  background-color: white;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
 
+.celebSlide {
+  /* margin: 20px; */
+  /* background-color: lightgray; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
 }
+
 .phoneSlider {
-    height: 320px;
-    background-color: lightgray;
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    overflow-x: scroll;
-    -ms-overflow-x: scroll;
+  height: 320px;
+  background-color: lightgray;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  overflow-x: scroll;
+  -ms-overflow-x: scroll;
 }
 .phoneSlide {
-    height: 280px;
-    margin: 5px;
-    background-color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 4px;
-    box-sizing: border-box;
+  height: 280px;
+  margin: 5px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
-@media only screen and (max-width: 600px) {.celebSlider {
+@media only screen and (max-width: 600px) {
+  .celebSlider {
     width: 75%;
     min-width: 300px;
     height: 160px;
@@ -74,8 +84,8 @@
     align-items: center;
     overflow-x: scroll;
     -ms-overflow-x: scroll;
-}
-.phoneSlider {
+  }
+  .phoneSlider {
     width: 75%;
     min-width: 300px;
     height: 320px;
@@ -85,8 +95,8 @@
     align-items: center;
     overflow-x: scroll;
     -ms-overflow-x: scroll;
-}
-.phoneSlide {
+  }
+  .phoneSlide {
     width: 400px;
     height: 280px;
     margin: 10px;
@@ -96,132 +106,111 @@
     justify-content: center;
     border-radius: 4px;
     box-sizing: border-box;
-}
-} 
-
-
-
-.celebSlide {
-    width: 110px;
-    height: 110px;
-    margin: 10px;
-    background-color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
+  }
 }
 
 .celebCard {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: transparent;
-    height: 150px;
-    width: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  height: 150px;
+  width: 150px;
 }
 
-
-
-
 .phoneCard {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #eee;
-    height: 280px;
-    width: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #eee;
+  height: 280px;
+  width: 160px;
 }
 
 .overlay {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #eee;
-    height: 280px;
-    width: 160px;
-    opacity: 0.3;
-    /*background-color: rgba(0, 0, 0, 0.8)*/
-    ;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #eee;
+  height: 280px;
+  width: 160px;
+  opacity: 0.3;
+  /*background-color: rgba(0, 0, 0, 0.8)*/
 }
 
 .displayNone {
-    display: none;
+  display: none;
 }
 
 .displayOverlayText {
-    display: flex;
-    font-weight: bold;
-    font-size: large;
-    color: black;
-    position: relative;
-    top: 40%;
-    left: 2%;
+  display: flex;
+  font-weight: bold;
+  font-size: large;
+  color: black;
+  position: relative;
+  top: 40%;
+  left: 2%;
 }
 
 .displayOverlayTextForCeleb {
-    display: flex;
-    font-weight: bold;
-    font-size: small;
-    color: white;
-    position: relative;
-    top: 30%;
-    left: 2%;
+  display: flex;
+  font-weight: bold;
+  font-size: small;
+  color: white;
+  position: relative;
+  top: 30%;
+  left: 2%;
 }
 
 .buttonContainer {
-    margin: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  margin: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .button {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 200px;
-    height: 60px;
-    border-radius: 16px;
-    background-color: #4caf50;
-    font-weight: bold;
-    color: white;
-    cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 60px;
+  border-radius: 16px;
+  background-color: #4caf50;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
 }
 
 .disableBtn {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 200px;
-    height: 60px;
-    border-radius: 16px;
-    background-color: lightgray;
-    font-weight: bold;
-    color: white;
-    cursor: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 60px;
+  border-radius: 16px;
+  background-color: lightgray;
+  font-weight: bold;
+  color: white;
+  cursor: none;
 }
 
-
-#scroll::-webkit-scrollbar-track
-{
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-    background-color: #F5F5F5;
+#scroll::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #f5f5f5;
 }
 
-#scroll::-webkit-scrollbar
-{
-    width: 6px;
-    background-color: #F5F5F5;
+#scroll::-webkit-scrollbar {
+  width: 6px;
+  background-color: #f5f5f5;
 }
 
-#scroll::-webkit-scrollbar-thumb
-{
-    background-color: #000000;
+#scroll::-webkit-scrollbar-thumb {
+  background-color: #000000;
 }
