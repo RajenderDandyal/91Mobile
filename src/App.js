@@ -299,15 +299,15 @@ class App extends Component {
         <div className={styles.body}>
           <div className={styles.container}>
             <div className={styles.logo}>
-              <img src={logo} alt="logo"/>
+              <img src={logo} alt="logo" />
             </div>
             <div>Presents</div>
             <div className={styles.heading}>#CelebValentine</div>
             {!this.state.showResult && (
                 <div className={styles.subheading}>
                   <p align="center">
-                    Chose the perfect smartphone gift
-                    <br/>
+                    Choose the perfect smartphone gift
+                    <br />
                     for your favourite celebrity
                   </p>
                 </div>
@@ -325,7 +325,7 @@ class App extends Component {
                   {isEmpty(this.state.selectedCeleb) ? null : (
                       <p
                           align="center"
-                          style={{fontWeight: "bold", padding: "0", margin: "3px"}}
+                          style={{ fontWeight: "bold", padding: "0", margin: "3px" }}
                       >
                         {this.state.selectedCeleb.name}
                       </p>
@@ -337,7 +337,7 @@ class App extends Component {
                   {isEmpty(this.state.selectedCeleb) ? null : (
                       <p
                           align="center"
-                          style={{padding: "0", margin: "3px", color: "orange"}}
+                          style={{ padding: "0", margin: "3px", color: "orange" }}
                       >
                         Hint
                       </p>
@@ -347,7 +347,7 @@ class App extends Component {
             {!this.state.showResult && (
                 <div>
                   {isEmpty(this.state.selectedCeleb) ? null : (
-                      <p align="center" style={{padding: "0", margin: "3px"}}>
+                      <p align="center" style={{ padding: "0", margin: "3px" }}>
                         {this.state.selectedCeleb.hint}
                       </p>
                   )}
@@ -386,31 +386,31 @@ class App extends Component {
                 </div>
             )}
             {this.state.showResult && (
-                <div style={{textAlign: "center"}}>
+                <div style={{ textAlign: "center" }}>
                   <p>
-                    Share it with your friends using <br/>
-                    the <span style={{fontWeight: "bold"}}>#CelebValentine</span>
+                    Share it with your friends using <br />
+                    the <span style={{ fontWeight: "bold" }}>#CelebValentine</span>
                   </p>
                 </div>
             )}
             {this.state.showResult && (
                 <div>
-                  <img style={{padding: 5}} src={fb} alt="facebook"/>
-                  <img style={{padding: 5}} src={insta} alt="facebook"/>
-                  <img style={{padding: 5}} src={twitter} alt="facebook"/>
+                  <img style={{ padding: 5 }} src={fb} alt="facebook" />
+                  <img style={{ padding: 5 }} src={insta} alt="facebook" />
+                  <img style={{ padding: 5 }} src={twitter} alt="facebook" />
                 </div>
             )}
             {this.state.showResult && (
-                <div style={{textAlign: "center"}}>
+                <div style={{ textAlign: "center" }}>
                   <p>
-                    and stand a chance to win <br/>
+                    and stand a chance to win <br />
                     amazon vouchers.
                   </p>
                 </div>
             )}
             {this.state.showResult && (
-                <div style={{textAlign: "center"}}>
-                  <img src={amazon} style={{width: "90%"}} alt="amazon"/>
+                <div style={{ textAlign: "center" }}>
+                  <img src={amazon} style={{ width: "90%" }} alt="amazon" />
                 </div>
             )}
           </div>
