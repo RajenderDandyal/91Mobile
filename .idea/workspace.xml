@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="11c09d2d-0b2b-460c-abdf-6c19cd4d2b2d" name="Default Changelist" comment="" />
+    <list default="true" id="11c09d2d-0b2b-460c-abdf-6c19cd4d2b2d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sliderCeleb/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/sliderCeleb/index.js" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -47,24 +50,27 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="942" />
-          <entry key="js" value="4833" />
+          <entry key="js" value="4834" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="942" />
-          <entry key="JavaScript" value="4833" />
+          <entry key="JavaScript" value="4834" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1762">
-              <caret line="294" lean-forward="true" selection-start-line="294" selection-end-line="294" />
+            <state relative-caret-position="2344">
+              <caret line="116" column="22" lean-forward="true" selection-start-line="116" selection-start-column="22" selection-end-line="116" selection-end-column="22" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -78,13 +84,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sliderCeleb/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
+            <state relative-caret-position="138">
+              <caret line="33" column="24" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
               <folding>
-                <element signature="e#0#38#0" expanded="true" />
+                <element signature="e#0#41#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -102,9 +108,9 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/styles.module.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5356">
-              <caret line="192" column="15" selection-start-line="192" selection-start-column="15" selection-end-line="192" selection-end-column="15" />
-              <caret line="206" column="15" selection-start-line="206" selection-start-column="15" selection-end-line="206" selection-end-column="15" />
+            <state relative-caret-position="5694">
+              <caret line="205" column="15" selection-start-line="205" selection-start-column="15" selection-end-line="205" selection-end-column="15" />
+              <caret line="219" column="15" selection-start-line="219" selection-start-column="15" selection-end-line="219" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -119,10 +125,10 @@
       <list>
         <option value="$PROJECT_DIR$/src/slider/index.js" />
         <option value="$PROJECT_DIR$/src/sliderCeleb/slide.js" />
-        <option value="$PROJECT_DIR$/src/sliderCeleb/index.js" />
         <option value="$PROJECT_DIR$/src/styles.module.css" />
         <option value="$PROJECT_DIR$/src/phoneSlider/index.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/src/sliderCeleb/index.js" />
       </list>
     </option>
   </component>
@@ -142,7 +148,7 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="12" />
     <option name="width" value="709" />
     <option name="height" value="766" />
@@ -228,10 +234,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57277000" />
+    <option name="totallyTimeSpent" value="58825000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24962178" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -247,7 +254,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50075644" side_tool="true" weight="0.32850242" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49924356" visible="true" weight="0.3268921" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49924356" weight="0.3268921" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -287,9 +294,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/styles.module.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5356">
-          <caret line="192" column="15" selection-start-line="192" selection-start-column="15" selection-end-line="192" selection-end-column="15" />
-          <caret line="206" column="15" selection-start-line="206" selection-start-column="15" selection-end-line="206" selection-end-column="15" />
+        <state relative-caret-position="5694">
+          <caret line="205" column="15" selection-start-line="205" selection-start-column="15" selection-end-line="205" selection-end-column="15" />
+          <caret line="219" column="15" selection-start-line="219" selection-start-column="15" selection-end-line="219" selection-end-column="15" />
         </state>
       </provider>
     </entry>
@@ -297,16 +304,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="9" column="4" lean-forward="true" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sliderCeleb/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -319,8 +316,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1762">
-          <caret line="294" lean-forward="true" selection-start-line="294" selection-end-line="294" />
+        <state relative-caret-position="2344">
+          <caret line="116" column="22" lean-forward="true" selection-start-line="116" selection-start-column="22" selection-end-line="116" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sliderCeleb/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="33" column="24" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
