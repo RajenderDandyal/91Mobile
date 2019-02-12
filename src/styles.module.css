@@ -1,6 +1,6 @@
 .body {
     width: 100%;
-    background-color: blue;
+    background-color: white;
     height: 100%;
     display: flex;
     align-items: center;
@@ -28,7 +28,7 @@
 .heading {
     font-size: large;
     font-weight: bold;
-    margin: 15px;
+    margin: 10px;
 }
 
 .subheading {
@@ -75,7 +75,7 @@
 .phoneSlider {
     width: 75%;
     min-width: 300px;
-    height: 360px;
+    height: 320px;
     background-color: lightgray;
     display: flex;
     flex-wrap: nowrap;
@@ -115,13 +115,15 @@
     height: 280px;
     width: 160px;
     opacity: 0.3;
-    /*background-color: rgba(0, 0, 0, 0.8)*/;
+    /*background-color: rgba(0, 0, 0, 0.8)*/
+    ;
 }
 
 .displayNone {
     display: none;
 }
-.displayOverlayText{
+
+.displayOverlayText {
     display: flex;
     font-weight: bold;
     font-size: large;
@@ -130,7 +132,8 @@
     top: 40%;
     left: 2%;
 }
-.displayOverlayTextForCeleb{
+
+.displayOverlayTextForCeleb {
     display: flex;
     font-weight: bold;
     font-size: small;
@@ -139,33 +142,36 @@
     top: 30%;
     left: 2%;
 }
-.buttonContainer{
-    margin:15px;
+
+.buttonContainer {
+    margin: 15px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.button{
+
+.button {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width:200px;
-    height:60px;
+    width: 200px;
+    height: 60px;
     border-radius: 16px;
     background-color: #4caf50;
     font-weight: bold;
     color: white;
     cursor: pointer;
 }
-.disableBtn{
+
+.disableBtn {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width:200px;
-    height:60px;
+    width: 200px;
+    height: 60px;
     border-radius: 16px;
     background-color: lightgray;
     font-weight: bold;
