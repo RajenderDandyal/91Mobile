@@ -25,7 +25,9 @@ export default class SliderCeleb extends Component {
                           opacity: "0.8",
                           backgroundColor: "darkGrey"
                         }
-                        : null
+                        : !isEmpty(celeb.match) ? {
+                          opacity: "0.8",
+                        } : null
                   }
               >
                 <div className={styles.celebCard}>
