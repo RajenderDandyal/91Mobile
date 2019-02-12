@@ -14,7 +14,7 @@ export default class SliderCeleb extends Component {
         <div className={styles.celebSlider} >
           {
             this.props.images.map((celeb, i) => (
-                <div onClick={() => this.handleSelectedCelebrity(celeb, i)} key={i} className={styles.celebSlide}
+                <div onClick={() => this.handleSelectedCelebrity(celeb, i)} key={i} id="scroll" className={styles.celebSlide}
                      style={celeb.clicked ? {width:"150", height:"150", opacity:"0.8", backgroundColor:"darkGrey"}:null }>
                   <div className={styles.celebCard}>
                     <div className={celeb.clicked && !isEmpty(celeb.match) ? styles.displayOverlayTextForCeleb : styles.displayNone}>
