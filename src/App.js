@@ -4,6 +4,7 @@ import logo from "./assets/logo.png";
 import SliderCeleb from "./sliderCeleb";
 import cloneDeep from "lodash/cloneDeep";
 import isEmpty from "lodash/isEmpty";
+import isEqual from "lodash/isEqual";
 import Badshah from "./assets/celeb/Badshah.png";
 import Deepika from "./assets/celeb/Deepika.png";
 import DiljitSingh from "./assets/celeb/Diljit-Singh.png";
@@ -245,13 +246,15 @@ class App extends Component {
     this.setState({ selectedPhone: updatedSelectedPhoneObj });
   };
   addSelectedPhoneForCeleb = () => {
-    let updatedSelectedCeleb = cloneDeep(this.state.celebImages);
-    updatedSelectedCeleb.forEach(item => {
+    let updatedCelebImages = cloneDeep(this.state.celebImages);
+    updatedCelebImages.forEach(item => {
       if (item.key === this.state.selectedCeleb.key) {
         item.match = this.state.selectedPhone;
+      }else if (isEqual(item.match ? item.match.key :null , this.state.selectedPhone.key)){
+        item.match = null
       }
     });
-    this.setState({ celebImages: updatedSelectedCeleb }, () =>
+    this.setState({ celebImages: updatedCelebImages }, () =>
       this.finallySubmit()
     );
   };
