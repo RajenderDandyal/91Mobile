@@ -105,6 +105,7 @@
     -ms-overflow-x: scroll;
   }
   .phoneSlider {
+    margin-left: 0px;
     width: 75%;
     min-width: 300px;
     height: 320px;
