@@ -55,6 +55,8 @@
 }
 
 .phoneSlider {
+  margin-left: 50px;
+  width: 180%;
   height: 320px;
   background-color: lightgray;
   display: flex;
@@ -74,10 +76,27 @@
   box-sizing: border-box;
 }
 @media only screen and (max-width: 600px) {
+  ::-webkit-scrollbar {
+    width: 0px; /* remove scrollbar space */
+    background: transparent; /* optional: just make scrollbar invisible */
+  }
+  /* optional: show position indicator in red */
+  ::-webkit-scrollbar-thumb {
+    background: #ff0000;
+  }
+  .celebSlide {
+    height: 200px;
+    margin: 5px;
+    /* background-color: lightgray; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
   .celebSlider {
-    width: 75%;
-    min-width: 300px;
-    height: 160px;
+    width: 90%;
+    min-width: 350px;
+    height: 250px;
     background-color: white;
     display: flex;
     flex-wrap: nowrap;
