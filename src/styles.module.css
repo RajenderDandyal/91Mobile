@@ -95,7 +95,7 @@
   }
   .celebSlider {
     width: 90%;
-    min-width: 350px;
+    min-width: 360px;
     height: 250px;
     background-color: white;
     display: flex;
@@ -107,7 +107,7 @@
   .phoneSlider {
     margin-left: 0px;
     width: 75%;
-    min-width: 300px;
+    min-width: 360px;
     height: 320px;
     background-color: lightgray;
     display: flex;
@@ -181,7 +181,7 @@
   font-size: small;
   color: white;
   position: relative;
-  top: 30%;
+  top: 20;
   left: 2%;
 }
 
