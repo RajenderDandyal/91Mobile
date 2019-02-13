@@ -22,7 +22,6 @@ import SamgsungA9 from "./assets/phones/Samsung-Galaxy-A9-Pro.png";
 import SamgsungS9 from "./assets/phones/Samsung-Galaxy-S9+.png";
 import Xiaomi from "./assets/phones/xiaomi-mi-mix-3.png";
 import fb from "./assets/fb.png";
-import insta from "./assets/insta.png";
 import twitter from "./assets/twitter.png";
 import amazon from "./assets/amazon.jpg";
 import SliderPhone from "./phoneSlider";
@@ -316,9 +315,11 @@ class App extends Component {
           {!this.state.showResult && (
             <div className={styles.subheading}>
               <p align="center">
-                Choose the perfect smartphone gift
+                Choose the perfect gift for your favourite
                 <br />
-                for your favourite celebrity
+                celebrity and stand a
+                <br />
+                chance to win Amazon vouchers.
               </p>
             </div>
           )}
@@ -411,7 +412,7 @@ class App extends Component {
                 url="https://www.91mobiles.com/"
                 quote={`I got ${
                   this.state.answerCheck.length
-                } out of 8 in @91mobiles #CelebValentine contest. Beat my score and stand a chance to win Amazon vouchers.`}
+                } out of 8 in #91mobiles #CelebValentine contest. Beat my score and stand a chance to win Amazon vouchers.`}
               >
                 <img style={{ padding: 5 }} src={fb} alt="facebook" />{" "}
               </FacebookShareButton>

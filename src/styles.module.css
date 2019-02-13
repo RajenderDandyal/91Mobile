@@ -56,7 +56,7 @@
 
 .phoneSlider {
   margin-left: 50px;
-  width: 180%;
+  /* width: 180%; */
   height: 320px;
   background-color: lightgray;
   display: flex;
