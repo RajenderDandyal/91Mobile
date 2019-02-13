@@ -32,6 +32,7 @@ class App extends Component {
     finallySubmit: false,
     showResult: false,
     answerCheck: [],
+    matchNumber:0,
     celebImages: [
       {
         image: DiljitSingh,
@@ -250,9 +251,16 @@ class App extends Component {
     });
 
     updatedPhoneImages[i] = updatedSelectedPhoneObj;
-
-    this.setState({ phoneImages: updatedPhoneImages }, () =>
-      this.addSelectedPhoneForCeleb()
+    console.log("final",this.state)
+    let count=0;
+    this.state.celebImages.map(item=>{
+      console.log("item",item)
+      if (item.clicked===true || item.match !=null){
+        count=count+1;
+      }
+    })
+    this.setState({ phoneImages: updatedPhoneImages,matchNumber:count}, () =>
+      this.addSelectedPhoneForCeleb(),
     );
     this.setState({ selectedPhone: updatedSelectedPhoneObj });
   };
@@ -321,6 +329,7 @@ class App extends Component {
                 <br />
                 chance to win Amazon vouchers.
               </p>
+              <p align="center" >( {this.state.matchNumber} out of 8 matched )</p>
             </div>
           )}
           {!this.state.showResult && (
