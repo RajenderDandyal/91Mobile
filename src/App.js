@@ -186,7 +186,7 @@ class App extends Component {
     let updatedSelectedCeleb = updatedStateImages.filter(
       item => item.key === i
     );
-    console.log(updatedSelectedCeleb, celeb, i);
+    //console.log(updatedSelectedCeleb, celeb, i);
     let updatedSelectedCelebObj = {};
     updatedSelectedCeleb.forEach(item => {
       updatedSelectedCelebObj.image = item.image;
@@ -212,7 +212,9 @@ class App extends Component {
         }
       }
     });
-    this.setState({ phoneImages: updatedPhoneImages });
+    this.setState({ phoneImages: updatedPhoneImages }, () =>
+        this.finallySubmit()
+    )
   };
   handleSelectedPhone = (phone, i) => {
     let updatedPhoneImages = cloneDeep(this.state.phoneImages);
@@ -251,10 +253,10 @@ class App extends Component {
     });
 
     updatedPhoneImages[i] = updatedSelectedPhoneObj;
-    console.log("final",this.state)
+    //console.log("final",this.state)
     let count=0;
     this.state.celebImages.map(item=>{
-      console.log("item",item)
+      //console.log("item",item)
       if (item.clicked===true || item.match !=null){
          count=count+1;
       }
@@ -283,7 +285,6 @@ class App extends Component {
     );
   };
   finallySubmit = () => {
-    if (!this.state.finallySubmit) {
       this.state.celebImages.forEach(item => {
         if (!isEmpty(item.match)) {
           this.setState({ finallySubmit: true });
@@ -291,7 +292,7 @@ class App extends Component {
           this.setState({ finallySubmit: false });
         }
       });
-    }
+
   };
   handleSubmit = () => {
     if (this.state.finallySubmit) {
@@ -311,7 +312,7 @@ class App extends Component {
   };
 
   render() {
-    // console.log(this.state);
+    console.log(this.state);
     return (
       <div className={styles.body}>
         <div className={styles.container}>

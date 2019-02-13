@@ -8,7 +8,7 @@ export default class SliderCeleb extends Component {
   };
 
   render() {
-    console.log(this.props);
+    //console.log(this.props);
     return (
       <div className={styles.celebSlider}>
         {this.props.images.map((celeb, i) => (
