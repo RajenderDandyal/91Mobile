@@ -285,12 +285,15 @@ class App extends Component {
     );
   };
   finallySubmit = () => {
+    let isValid = true;
       this.state.celebImages.forEach(item => {
-        if (!isEmpty(item.match)) {
+      isValid = !isEmpty(item.match) && isValid
+        if (isValid) {
           this.setState({ finallySubmit: true });
         } else {
           this.setState({ finallySubmit: false });
         }
+
       });
 
   };
