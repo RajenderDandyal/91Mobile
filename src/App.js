@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import styles from "./styles.module.css";
 import logo from "./assets/logo.png";
 import SliderCeleb from "./sliderCeleb";
@@ -22,16 +22,17 @@ import SamgsungA9 from "./assets/phones/Samsung-Galaxy-A9-Pro.png";
 import SamgsungS9 from "./assets/phones/Samsung-Galaxy-S9+.png";
 import Xiaomi from "./assets/phones/xiaomi-mi-mix-3.png";
 import fb from "./assets/fb.png";
-import insta from "./assets/insta.png";
 import twitter from "./assets/twitter.png";
 import amazon from "./assets/amazon.jpg";
 import SliderPhone from "./phoneSlider";
+import { FacebookShareButton, TwitterShareButton } from "react-share";
 
 class App extends Component {
   state = {
     finallySubmit: false,
     showResult: false,
     answerCheck: [],
+    matchNumber:0,
     celebImages: [
       {
         image: DiljitSingh,
@@ -183,7 +184,7 @@ class App extends Component {
       }
     });
     let updatedSelectedCeleb = updatedStateImages.filter(
-        item => item.key === i
+      item => item.key === i
     );
     console.log(updatedSelectedCeleb, celeb, i);
     let updatedSelectedCelebObj = {};
@@ -197,9 +198,9 @@ class App extends Component {
     });
 
     updatedStateImages[i] = updatedSelectedCelebObj;
-    this.setState({selectedCeleb: updatedSelectedCelebObj});
-    this.setState({celebImages: updatedStateImages}, () =>
-        this.addSelectedPhoneFlag()
+    this.setState({ selectedCeleb: updatedSelectedCelebObj });
+    this.setState({ celebImages: updatedStateImages }, () =>
+      this.addSelectedPhoneFlag()
     );
   };
   addSelectedPhoneFlag = () => {
@@ -211,7 +212,7 @@ class App extends Component {
         }
       }
     });
-    this.setState({phoneImages: updatedPhoneImages});
+    this.setState({ phoneImages: updatedPhoneImages });
   };
   handleSelectedPhone = (phone, i) => {
     let updatedPhoneImages = cloneDeep(this.state.phoneImages);
@@ -223,17 +224,21 @@ class App extends Component {
       }
     });
     updatedPhoneImages.forEach(item => {
-      if (isEqual(item.match ? item.match.key : null, this.state.selectedCeleb ? this.state.selectedCeleb.key :null)) {
-        item.match = null
-        console.log("fgfgfgfgfgfg")
+      if (
+        isEqual(
+          item.match ? item.match.key : null,
+          this.state.selectedCeleb ? this.state.selectedCeleb.key : null
+        )
+      ) {
+        item.match = null;
       }
     });
 
-
     let updatedSelectedPhone = updatedPhoneImages.filter(
-        item => item.key === phone.key
+      item => item.key === phone.key
     );
-    console.log(updatedSelectedPhone, phone, i);
+    // console.log(updatedSelectedPhone, phone, i);
+    // console.log(i + "out of" + 8);
     let updatedSelectedPhoneObj = {};
     updatedSelectedPhone.forEach(item => {
       updatedSelectedPhoneObj.image = item.image;
@@ -246,32 +251,44 @@ class App extends Component {
     });
 
     updatedPhoneImages[i] = updatedSelectedPhoneObj;
-
-    this.setState({phoneImages: updatedPhoneImages}, () =>
-        this.addSelectedPhoneForCeleb()
+    console.log("final",this.state)
+    let count=0;
+    this.state.celebImages.map(item=>{
+      console.log("item",item)
+      if (item.clicked===true || item.match !=null){
+         count=count+1;
+      }
+    })
+    this.setState({ phoneImages: updatedPhoneImages,matchNumber:count}, () =>
+      this.addSelectedPhoneForCeleb(),
     );
-    this.setState({selectedPhone: updatedSelectedPhoneObj});
+    this.setState({ selectedPhone: updatedSelectedPhoneObj });
   };
   addSelectedPhoneForCeleb = () => {
     let updatedCelebImages = cloneDeep(this.state.celebImages);
     updatedCelebImages.forEach(item => {
       if (item.key === this.state.selectedCeleb.key) {
         item.match = this.state.selectedPhone;
-      } else if (isEqual(item.match ? item.match.key : null, this.state.selectedPhone.key)) {
-        item.match = null
+      } else if (
+        isEqual(
+          item.match ? item.match.key : null,
+          this.state.selectedPhone.key
+        )
+      ) {
+        item.match = null;
       }
     });
-    this.setState({celebImages: updatedCelebImages}, () =>
-        this.finallySubmit()
+    this.setState({ celebImages: updatedCelebImages }, () =>
+      this.finallySubmit()
     );
   };
   finallySubmit = () => {
     if (!this.state.finallySubmit) {
       this.state.celebImages.forEach(item => {
         if (!isEmpty(item.match)) {
-          this.setState({finallySubmit: true});
+          this.setState({ finallySubmit: true });
         } else {
-          this.setState({finallySubmit: false});
+          this.setState({ finallySubmit: false });
         }
       });
     }
@@ -290,131 +307,147 @@ class App extends Component {
         answerCheck.push(true);
       }
     });
-    this.setState({answerCheck, showResult: true});
+    this.setState({ answerCheck, showResult: true });
   };
 
   render() {
-    console.log(this.state);
+    // console.log(this.state);
     return (
-        <div className={styles.body}>
-          <div className={styles.container}>
-            <div className={styles.logo}>
-              <img src={logo} alt="logo" />
-            </div>
-            <div>Presents</div>
-            <div className={styles.heading}>#CelebValentine</div>
-            {!this.state.showResult && (
-                <div className={styles.subheading}>
-                  <p align="center">
-                    Choose the perfect smartphone gift
-                    <br />
-                    for your favourite celebrity
-                  </p>
-                </div>
-            )}
-            {!this.state.showResult && (
-                <SliderCeleb
-                    handleSelectedCelebrity={(celeb, i) =>
-                        this.handleSelectedCelebrity(celeb, i)
-                    }
-                    images={this.state.celebImages}
-                />
-            )}
-            {!this.state.showResult && (
-                <div>
-                  {isEmpty(this.state.selectedCeleb) ? null : (
-                      <p
-                          align="center"
-                          style={{ fontWeight: "bold", padding: "0", margin: "3px" }}
-                      >
-                        {this.state.selectedCeleb.name}
-                      </p>
-                  )}
-                </div>
-            )}
-            {!this.state.showResult && (
-                <div>
-                  {isEmpty(this.state.selectedCeleb) ? null : (
-                      <p
-                          align="center"
-                          style={{ padding: "0", margin: "3px", color: "orange" }}
-                      >
-                        Hint
-                      </p>
-                  )}
-                </div>
-            )}
-            {!this.state.showResult && (
-                <div>
-                  {isEmpty(this.state.selectedCeleb) ? null : (
-                      <p align="center" style={{ padding: "0", margin: "3px" }}>
-                        {this.state.selectedCeleb.hint}
-                      </p>
-                  )}
-                </div>
-            )}
-            {!this.state.showResult && (
-                <SliderPhone
-                    handleSelectedPhone={(phone, i) =>
-                        this.handleSelectedPhone(phone, i)
-                    }
-                    images={this.state.phoneImages}
-                />
-            )}
-            {!this.state.showResult && (
-                <div onClick={this.handleSubmit} className={styles.buttonContainer}>
-                  <div
-                      className={
-                        this.state.finallySubmit ? styles.button : styles.disableBtn
-                      }
-                  >
-                    Submit
-                  </div>
-                </div>
-            )}
-
-            {this.state.showResult && (
-                <div
-                    style={{
-                      backgroundColor: "orange",
-                      color: "white",
-                      fontSize: 20,
-                      padding: 3
-                    }}
-                >
-                  You got {this.state.answerCheck.length} out of 8 correct answers.
-                </div>
-            )}
-            {this.state.showResult && (
-                <div style={{ textAlign: "center" }}>
-                  <p>
-                    Share it with your friends using <br />
-                    the <span style={{ fontWeight: "bold" }}>#CelebValentine</span>
-                  </p>
-                </div>
-            )}
-            {this.state.showResult && (
-                <div>
-                  <img style={{ padding: 5 }} src={fb} alt="facebook" />
-                  <img style={{ padding: 5 }} src={insta} alt="facebook" />
-                  <img style={{ padding: 5 }} src={twitter} alt="facebook" />
-                </div>
-            )}
-            {this.state.showResult && (
-                <div style={{ textAlign: "center" }}>
-                  <p>
-                    and stand a chance to win <br />
-                    amazon vouchers.
-                  </p>
-                </div>
-            )}
-            {this.state.showResult && (
-                <div style={{ textAlign: "center" }}>
-                  <img src={amazon} style={{ width: "90%" }} alt="amazon" />
-                </div>
-            )}
+      <div className={styles.body}>
+        <div className={styles.container}>
+          <div className={styles.logo}>
+            <img src={logo} alt="logo" />
           </div>
+          <div>Presents</div>
+          <div className={styles.heading}>#CelebValentine</div>
+          {!this.state.showResult && (
+            <div className={styles.subheading}>
+              <p align="center">
+                Choose the perfect gift for the celebrities
+                <br />
+                 and stand a chance to win Amazon vouchers.
+              </p>
+              <p align="center" style={{fontWeight:'bold'}}>First, select a celebrity and then click the phone you want to match them to</p>
+              <p align="center" >( {this.state.matchNumber} out of 8 matched )</p>
+            </div>
+          )}
+          {!this.state.showResult && (
+            <SliderCeleb
+              handleSelectedCelebrity={(celeb, i) =>
+                this.handleSelectedCelebrity(celeb, i)
+              }
+              images={this.state.celebImages}
+            />
+          )}
+          {!this.state.showResult && (
+            <div>
+              {isEmpty(this.state.selectedCeleb) ? null : (
+                <p
+                  align="center"
+                  style={{ fontWeight: "bold", padding: "0", margin: "3px" }}
+                >
+                  {this.state.selectedCeleb.name}
+                </p>
+              )}
+            </div>
+          )}
+          {!this.state.showResult && (
+            <div>
+              {isEmpty(this.state.selectedCeleb) ? null : (
+                <p
+                  align="center"
+                  style={{ padding: "0", margin: "3px", color: "orange" }}
+                >
+                  Hint
+                </p>
+              )}
+            </div>
+          )}
+          {!this.state.showResult && (
+            <div>
+              {isEmpty(this.state.selectedCeleb) ? null : (
+                <p align="center" style={{ padding: "0", margin: "3px" }}>
+                  {this.state.selectedCeleb.hint}
+                </p>
+              )}
+            </div>
+          )}
+          {!this.state.showResult && (
+            <SliderPhone
+              handleSelectedPhone={(phone, i) =>
+                this.handleSelectedPhone(phone, i)
+              }
+              images={this.state.phoneImages}
+            />
+          )}
+          {!this.state.showResult && (
+            <div onClick={this.handleSubmit} className={styles.buttonContainer}>
+              <div
+                className={
+                  this.state.finallySubmit ? styles.button : styles.disableBtn
+                }
+              >
+                Submit
+              </div>
+            </div>
+          )}
+
+          {this.state.showResult && (
+            <div
+              style={{
+                backgroundColor: "orange",
+                color: "white",
+                fontSize: 20,
+                padding: 3
+              }}
+            >
+              You got {this.state.answerCheck.length} out of 8 correct answers.
+            </div>
+          )}
+          {this.state.showResult && (
+            <div style={{ textAlign: "center" }}>
+              <p>
+                Tag your friends and share your score using the buttons below 
+              </p>
+            </div>
+          )}
+          {this.state.showResult && (
+            <div>
+              {/* <img style={{ padding: 5 }} src={insta} alt="facebook" /> */}
+              <FacebookShareButton
+                style={{ display: "initial" }}
+                url="https://www.91mobiles.com/"
+                quote={`I got ${
+                  this.state.answerCheck.length
+                } out of 8 in #91mobiles #CelebValentine contest. Beat my score and stand a chance to win Amazon vouchers.`}
+              >
+                <img style={{ padding: 5 }} src={fb} alt="facebook" />{" "}
+              </FacebookShareButton>
+              <TwitterShareButton
+                style={{ display: "initial" }}
+                url="https://www.91mobiles.com/"
+                title={`I got ${
+                  this.state.answerCheck.length
+                } out of 8 in @91mobiles #CelebValentine contest. Beat my score and stand a chance to win Amazon vouchers.`}
+              >
+                <img style={{ padding: 5 }} src={twitter} alt="facebook" />
+              </TwitterShareButton>
+            </div>
+          )}
+          {this.state.showResult && (
+            <div style={{ textAlign: "center" }}>
+              <p>
+                and stand a chance to win amazon vouchers.
+              </p>
+            </div>
+          )}
+          {this.state.showResult && (
+            <div style={{ textAlign: "center" }}>
+              <img src={amazon} style={{ width: "90%" }} alt="amazon" />
+            </div>
+          )}
         </div>
+      </div>
     );
   }
 }
