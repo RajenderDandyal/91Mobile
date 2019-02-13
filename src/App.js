@@ -24,15 +24,18 @@ import Xiaomi from "./assets/phones/xiaomi-mi-mix-3.png";
 import fb from "./assets/fb.png";
 import twitter from "./assets/twitter.png";
 import amazon from "./assets/amazon.jpg";
+import correct from "./assets/correct.png";
 import SliderPhone from "./phoneSlider";
 import { FacebookShareButton, TwitterShareButton } from "react-share";
+import Modal from "react-responsive-modal";
 
 class App extends Component {
   state = {
     finallySubmit: false,
     showResult: false,
+    open: false,
     answerCheck: [],
-    matchNumber:0,
+    matchNumber: 0,
     celebImages: [
       {
         image: DiljitSingh,
@@ -176,6 +179,14 @@ class App extends Component {
     ],
     selectedPhone: null
   };
+  onOpenModal = () => {
+    this.setState({ open: true });
+  };
+
+  onCloseModal = () => {
+    this.setState({ open: false });
+  };
+
   handleSelectedCelebrity = (celeb, i) => {
     let updatedStateImages = cloneDeep(this.state.celebImages);
     updatedStateImages.forEach(item => {
@@ -213,8 +224,8 @@ class App extends Component {
       }
     });
     this.setState({ phoneImages: updatedPhoneImages }, () =>
-        this.finallySubmit()
-    )
+      this.finallySubmit()
+    );
   };
   handleSelectedPhone = (phone, i) => {
     let updatedPhoneImages = cloneDeep(this.state.phoneImages);
@@ -254,15 +265,15 @@ class App extends Component {
 
     updatedPhoneImages[i] = updatedSelectedPhoneObj;
     //console.log("final",this.state)
-    let count=0;
-    this.state.celebImages.map(item=>{
+    let count = 0;
+    this.state.celebImages.map(item => {
       //console.log("item",item)
-      if (item.clicked===true || item.match !=null){
-         count=count+1;
+      if (item.clicked === true || item.match != null) {
+        count = count + 1;
       }
-    })
-    this.setState({ phoneImages: updatedPhoneImages,matchNumber:count}, () =>
-      this.addSelectedPhoneForCeleb(),
+    });
+    this.setState({ phoneImages: updatedPhoneImages, matchNumber: count }, () =>
+      this.addSelectedPhoneForCeleb()
     );
     this.setState({ selectedPhone: updatedSelectedPhoneObj });
   };
@@ -286,16 +297,14 @@ class App extends Component {
   };
   finallySubmit = () => {
     let isValid = true;
-      this.state.celebImages.forEach(item => {
-      isValid = !isEmpty(item.match) && isValid
-        if (isValid) {
-          this.setState({ finallySubmit: true });
-        } else {
-          this.setState({ finallySubmit: false });
-        }
-
-      });
-
+    this.state.celebImages.forEach(item => {
+      isValid = !isEmpty(item.match) && isValid;
+      if (isValid) {
+        this.setState({ finallySubmit: true });
+      } else {
+        this.setState({ finallySubmit: false });
+      }
+    });
   };
   handleSubmit = () => {
     if (this.state.finallySubmit) {
@@ -329,10 +338,15 @@ class App extends Component {
               <p align="center">
                 Choose the perfect gift for the celebrities
                 <br />
-                 and stand a chance to win Amazon vouchers.
+                and stand a chance to win Amazon vouchers.
               </p>
-              <p align="center" style={{fontWeight:'bold'}}>First, select a celebrity and then click the phone you want to match them to</p>
-              <p align="center" >( {this.state.matchNumber} out of 8 matched )</p>
+              <p align="center" style={{ fontWeight: "bold" }}>
+                First, select a celebrity and then click the phone you want to
+                match them to
+              </p>
+              <p align="center">
+                ( {this.state.matchNumber} out of 8 matched )
+              </p>
             </div>
           )}
           {!this.state.showResult && (
@@ -409,9 +423,130 @@ class App extends Component {
             </div>
           )}
           {this.state.showResult && (
+            <div style={{ marginTop: 5 }}>
+              <button
+                className={styles.rightButton}
+                onClick={this.onOpenModal}
+                style={{}}
+              >
+                Show Correct Answers
+              </button>
+              <Modal open={this.state.open} onClose={this.onCloseModal} center>
+                <p align="center">Correct Answers</p>
+                <table>
+                  <tr>
+                    <td>
+                      <img src={DiljitSingh} width={100} />
+                      <figcaption> Diljit Singh </figcaption>
+                    </td>
+                    <td>
+                      <img src={correct} width={50} />
+                    </td>
+                    <td>
+                      <img src={Xiaomi} width={100} />
+                      <figcaption> Xiaomi-mi-mix-3 </figcaption>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img src={Ramdev} width={100} />
+                      <figcaption> Baba Ramdev </figcaption>
+                    </td>
+                    <td>
+                      <img src={correct} width={50} />
+                    </td>
+                    <td>
+                      <img src={MicromaxInfinity} width={100} />
+                      <figcaption> Micromax-Infinity-N11 </figcaption>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img src={RanveerSingh} width={100} />
+                      <figcaption> Ranveer Singh </figcaption>
+                    </td>
+                    <td>
+                      <img src={correct} width={50} />
+                    </td>
+                    <td>
+                      <img src={SamgsungA9} width={100} />
+                      <figcaption> Samgsung-Galaxy-A9-Pro </figcaption>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img src={SRK} width={100} />
+                      <figcaption> Shah Rukh Khan </figcaption>
+                    </td>
+                    <td>
+                      <img src={correct} width={50} />
+                    </td>
+                    <td>
+                      <img src={HuaweiP20} width={100} />
+                      <figcaption> Huawei-P20-Pro </figcaption>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img src={Sunny} width={100} />
+                      <figcaption> Sunny Deol </figcaption>
+                    </td>
+                    <td>
+                      <img src={correct} width={50} />
+                    </td>
+                    <td>
+                      <img src={MotoZ2} width={100} />
+                      <figcaption> Moto-Z2-Force </figcaption>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img src={Virat} width={100} />
+                      <figcaption> Virat </figcaption>
+                    </td>
+                    <td>
+                      <img src={correct} width={50} />
+                    </td>
+                    <td>
+                      <img src={AppleXs} width={100} />
+                      <figcaption> Apple-iPhone-Xs-Max </figcaption>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img src={Badshah} width={100} />
+                      <figcaption> Badshah </figcaption>
+                    </td>
+                    <td>
+                      <img src={correct} width={50} />
+                    </td>
+                    <td>
+                      <img src={SamgsungS9} width={100} />
+                      <figcaption> Samgsung-Galaxy-S9+ </figcaption>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img src={Deepika} width={100} />
+                      <figcaption> Deepika </figcaption>
+                    </td>
+                    <td>
+                      <img src={correct} width={50} />
+                    </td>
+                    <td>
+                      <img src={OppoF3} width={100} />
+                      <figcaption> Oppo-F3-Plus </figcaption>
+                    </td>
+                  </tr>
+                </table>
+              </Modal>
+            </div>
+          )}
+
+          {this.state.showResult && (
             <div style={{ textAlign: "center" }}>
               <p>
-                Tag your friends and share your score using the buttons below 
+                Tag your friends and share your score using the buttons below
               </p>
             </div>
           )}
@@ -440,9 +575,7 @@ class App extends Component {
           )}
           {this.state.showResult && (
             <div style={{ textAlign: "center" }}>
-              <p>
-                and stand a chance to win amazon vouchers.
-              </p>
+              <p>and stand a chance to win amazon vouchers.</p>
             </div>
           )}
           {this.state.showResult && (
