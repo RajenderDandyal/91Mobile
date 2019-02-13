@@ -349,6 +349,7 @@ class App extends Component {
               </p>
             </div>
           )}
+          <p>Select your favourite celebrity:</p>
           {!this.state.showResult && (
             <SliderCeleb
               handleSelectedCelebrity={(celeb, i) =>
@@ -390,6 +391,7 @@ class App extends Component {
               )}
             </div>
           )}
+          <p>Select Gift:</p>
           {!this.state.showResult && (
             <SliderPhone
               handleSelectedPhone={(phone, i) =>
