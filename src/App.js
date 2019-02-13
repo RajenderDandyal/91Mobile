@@ -26,6 +26,7 @@ import insta from "./assets/insta.png";
 import twitter from "./assets/twitter.png";
 import amazon from "./assets/amazon.jpg";
 import SliderPhone from "./phoneSlider";
+import { FacebookShareButton, TwitterShareButton } from "react-share";
 
 class App extends Component {
   state = {
@@ -404,9 +405,25 @@ class App extends Component {
           )}
           {this.state.showResult && (
             <div>
-              <img style={{ padding: 5 }} src={fb} alt="facebook" />
               {/* <img style={{ padding: 5 }} src={insta} alt="facebook" /> */}
-              <img style={{ padding: 5 }} src={twitter} alt="facebook" />
+              <FacebookShareButton
+                style={{ display: "initial" }}
+                url="http://91mobiles.s3-website.ap-south-1.amazonaws.com"
+                quote={`I got ${
+                  this.state.answerCheck.length
+                } out of 8 right answers in #91mobile #CelebValentine contest. Beat my score and stand a chance to win Amazon vouchers.`}
+              >
+                <img style={{ padding: 5 }} src={fb} alt="facebook" />{" "}
+              </FacebookShareButton>
+              <TwitterShareButton
+                style={{ display: "initial" }}
+                url="http://91mobiles.s3-website.ap-south-1.amazonaws.com"
+                title={`I got ${
+                  this.state.answerCheck.length
+                } out of 8 right answers in #91mobile #CelebValentine contest. Beat my score and stand a chance to win Amazon vouchers.`}
+              >
+                <img style={{ padding: 5 }} src={twitter} alt="facebook" />
+              </TwitterShareButton>
             </div>
           )}
           {this.state.showResult && (
