@@ -408,19 +408,19 @@ class App extends Component {
               {/* <img style={{ padding: 5 }} src={insta} alt="facebook" /> */}
               <FacebookShareButton
                 style={{ display: "initial" }}
-                url="http://91mobiles.s3-website.ap-south-1.amazonaws.com"
+                url="https://www.91mobiles.com/"
                 quote={`I got ${
                   this.state.answerCheck.length
-                } out of 8 right answers in #91mobile #CelebValentine contest. Beat my score and stand a chance to win Amazon vouchers.`}
+                } out of 8 in @91mobiles #CelebValentine contest. Beat my score and stand a chance to win Amazon vouchers.`}
               >
                 <img style={{ padding: 5 }} src={fb} alt="facebook" />{" "}
               </FacebookShareButton>
               <TwitterShareButton
                 style={{ display: "initial" }}
-                url="http://91mobiles.s3-website.ap-south-1.amazonaws.com"
+                url="https://www.91mobiles.com/"
                 title={`I got ${
                   this.state.answerCheck.length
-                } out of 8 right answers in #91mobile #CelebValentine contest. Beat my score and stand a chance to win Amazon vouchers.`}
+                } out of 8 in @91mobiles #CelebValentine contest. Beat my score and stand a chance to win Amazon vouchers.`}
               >
                 <img style={{ padding: 5 }} src={twitter} alt="facebook" />
               </TwitterShareButton>
