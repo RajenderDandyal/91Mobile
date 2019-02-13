@@ -43,7 +43,7 @@ class App extends Component {
         match: null,
         clicked: null,
         key: 0,
-        hint: "Big display to stalk Kylie Jenner’s instagram handle"
+        hint: "Big display to admire Kylie Jenner's Instagram pictures"
       },
       {
         image: Ramdev,
@@ -83,7 +83,7 @@ class App extends Component {
         match: null,
         clicked: null,
         key: 5,
-        hint: "Likes recording people littering from cars"
+        hint: "To record and stop people from littering on roads"
       },
       {
         image: Badshah,
@@ -349,7 +349,7 @@ class App extends Component {
               </p>
             </div>
           )}
-          <p>Select your favourite celebrity:</p>
+          <p>Select celebrity:</p>
           {!this.state.showResult && (
             <SliderCeleb
               handleSelectedCelebrity={(celeb, i) =>
@@ -557,7 +557,7 @@ class App extends Component {
               {/* <img style={{ padding: 5 }} src={insta} alt="facebook" /> */}
               <FacebookShareButton
                 style={{ display: "initial" }}
-                url="https://www.91mobiles.com/"
+                url="https://bit.ly/2X9rndU"
                 quote={`I got ${
                   this.state.answerCheck.length
                 } out of 8 in #91mobiles #CelebValentine contest. Beat my score and stand a chance to win Amazon vouchers.`}
@@ -566,7 +566,7 @@ class App extends Component {
               </FacebookShareButton>
               <TwitterShareButton
                 style={{ display: "initial" }}
-                url="https://www.91mobiles.com/"
+                url="https://bit.ly/2X9rndU"
                 title={`I got ${
                   this.state.answerCheck.length
                 } out of 8 in @91mobiles #CelebValentine contest. Beat my score and stand a chance to win Amazon vouchers.`}
