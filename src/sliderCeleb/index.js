@@ -39,15 +39,14 @@ export default class SliderCeleb extends Component {
                     ? styles.displayOverlayTextForCeleb
                     : styles.displayNone
                 }
-              >
-                <p align="center">
+              ><div><p align="center" style={{color:'black',backgroundColor:'lightgray',opacity:0.6,padding:'4px'}}>
                   Matched with{" "}
                   {celeb.finallySelected
                     ? celeb.match.name
                     : !isEmpty(celeb.match)
                     ? celeb.match.name
                     : "none"}
-                </p>
+                </p></div>
                 {/*<p align="center">{phone.clicked && !isEmpty(phone.match) ?phone.match.name : "none"}</p>*/}
               </div>
               <div style={{ backgroundColor: "lightgray", padding: 5 }}>

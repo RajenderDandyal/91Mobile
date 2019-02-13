@@ -35,7 +35,7 @@
   font-size: inherit;
   margin: 10px;
   flex-wrap: wrap;
-  width: 350px;
+  /*width: 360px;*/
 }
 .celebSlider {
   height: 200px;

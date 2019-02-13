@@ -256,7 +256,7 @@ class App extends Component {
     this.state.celebImages.map(item=>{
       console.log("item",item)
       if (item.clicked===true || item.match !=null){
-        count=count+1;
+         count=count+1;
       }
     })
     this.setState({ phoneImages: updatedPhoneImages,matchNumber:count}, () =>
@@ -323,12 +323,11 @@ class App extends Component {
           {!this.state.showResult && (
             <div className={styles.subheading}>
               <p align="center">
-                Choose the perfect gift for your favourite
+                Choose the perfect gift for the celebrities
                 <br />
-                celebrity and stand a
-                <br />
-                chance to win Amazon vouchers.
+                 and stand a chance to win Amazon vouchers.
               </p>
+              <p align="center" style={{fontWeight:'bold'}}>First, select a celebrity and then click the phone you want to match them to</p>
               <p align="center" >( {this.state.matchNumber} out of 8 matched )</p>
             </div>
           )}
@@ -408,8 +407,7 @@ class App extends Component {
           {this.state.showResult && (
             <div style={{ textAlign: "center" }}>
               <p>
-                Share it with your friends using <br />
-                the <span style={{ fontWeight: "bold" }}>#CelebValentine</span>
+                Tag your friends and share your score using the buttons below 
               </p>
             </div>
           )}
@@ -439,8 +437,7 @@ class App extends Component {
           {this.state.showResult && (
             <div style={{ textAlign: "center" }}>
               <p>
-                and stand a chance to win <br />
-                amazon vouchers.
+                and stand a chance to win amazon vouchers.
               </p>
             </div>
           )}
